@@ -1,2 +1,2 @@
 # thinkbroadly-blog
-A blog built with Strapi.js, MongoDB and Gatsby.js
+A blog built with Strapi.js, Gatsby.js and MongoDB

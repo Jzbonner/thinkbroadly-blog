@@ -1,5 +1,10 @@
 .container {
-  background-color: rgba(119, 87, 107, 0.8);
+  background: linear-gradient(
+    to right,
+    rgba(200, 194, 174, 1),
+    rgba(138, 185, 181, 1),
+    rgba(52, 228, 234, 1)
+  );
   padding: 0;
   margin: 0;
 }
@@ -7,16 +12,19 @@
 .main {
   padding-top: 1rem;
   padding-bottom: 4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
   height: auto;
   box-shadow: 0px 30px 64px 0px rgba(0, 0, 0, 0.65);
+  border-bottom-left-radius: 60%;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
 .body {
-  background-image: url(https://res.cloudinary.com/dzmc7doja/image/upload/v1644877367/portfolio-site/temp-background.jpg);
+  border-top: 4px solid rgba(138, 185, 181, 1);
+  box-shadow: 0px 30px 64px 0px rgba(0, 0, 0, 0.65);
+  background-image: url("../public/bg-test.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -28,7 +36,8 @@
 }
 
 .bodyOverlay {
-  background: rgba(48, 61, 70, 0.9);
+  background: rgba(48, 61, 70, 0.5);
+  box-shadow: 0px 30px 64px 0px rgba(0, 0, 0, 0.65);
   height: auto;
   padding-bottom: 6rem;
   flex: 1;

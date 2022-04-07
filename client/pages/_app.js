@@ -1,11 +1,16 @@
 //chakra-ui imports
 import { ChakraProvider } from "@chakra-ui/react"
 
+// fontsouce imports 
+import "@fontsource/hind" 
+import "@fontsource/open-sans-condensed"
+import "@fontsource/open-sans"
+
 //styles imports
 import styles from "../styles/globals.css"
 import { BlogTheme } from "../styles/theme"
 
-function MyApp({ Component, pageProps }) {
+function BlogApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={BlogTheme}>
       <Component {...pageProps} />
@@ -13,4 +18,4 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-export default MyApp
+export default BlogApp

@@ -1,5 +1,5 @@
 //chakra-ui imports
-import { Box, Container, Stack, Badge, Image } from "@chakra-ui/react"
+import { Box, Container, Stack, Text, Badge, Image } from "@chakra-ui/react"
 import { CalendarIcon } from "@chakra-ui/icons"
 
 const Spotlight = () => {
@@ -12,7 +12,7 @@ const Spotlight = () => {
     imageAlt: "spotlight blog image",
     tags: ["js", "tech", "coding"],
     title: ["Gatsby.js & MDX", "Figma", "Framer Motion"],
-    date: "Jan.17.22",
+    date: "01.17.22",
     description: [
       "Connecting a Local CMS to Frontend",
       "Design Tools for Rapid Prototyping",
@@ -24,50 +24,52 @@ const Spotlight = () => {
     <Container mt={8} maxW="container.xl">
       <Stack direction={["column", "null", "row"]} spacing="45px">
         <Box
-          className="shadow-2xl rounded-3xl"
+          className="shadow-xl rounded-3xl"
           maxW="sm"
-          bg="cardBackground"
-          borderWidth="5px"
+          bg="baseTone"
+          opacity="0.9"
+          backdropFilter="blur(30px)"
           overflow="hidden"
         >
           <Image src={article.imageUrl[0]} alt={article.imageAlt} />
-
           <Box p="5">
             <Box display="flex" alignItems="baseline">
-              <Badge borderRadius="full" px="2" colorScheme="linkedin">
+              <Badge borderRadius="full" px="2" bg="transitionTone">
                 Spotlight
               </Badge>
               <Box
-                color="cardLightText"
+                color="deepTone"
+                opacity="0.6"
                 fontWeight="semibold"
                 letterSpacing="wide"
                 fontSize="xs"
                 textTransform="uppercase"
                 ml="2"
               >
-                {article.tags[0]} &bull; {article.tags[1]} &bull;{" "}
-                {article.tags[2]}
+                <Text fontFamily="tags">
+                  {article.tags[0]} &bull; {article.tags[1]} &bull;{" "}
+                  {article.tags[2]}
+                </Text>
               </Box>
             </Box>
-
             <Box
               mt={3}
-              fontWeight="semibold"
+              fontWeight="bold"
               textTransform="uppercase"
-              as="h4"
+              fontSize="lg"
               lineHeight="tight"
-              letterSpacing="1px"
+              letterSpacing="wider"
               isTruncated
             >
               {article.title[0]}
             </Box>
-
             <Box display="flex" mt="-1" alignItems="center">
               <Box
                 as="span"
                 color="spotlightDescription"
-                fontWeight="semibold"
-                fontSize="sm"
+                fontWeight="thin"
+                letterSpacing="normal"
+                fontSize="md"
               >
                 {article.description[0]}
               </Box>
@@ -79,23 +81,26 @@ const Spotlight = () => {
           </Box>
         </Box>
         <Box
-          className="shadow-2xl rounded-3xl"
+          className="shadow-xl rounded-3xl"
           maxW="sm"
-          bg="cardBackground"
-          borderWidth="5px"
+          bg="baseTone"
+          opacity="0.9"
+          backdropFilter="blur(30px)"
           overflow="hidden"
         >
           <Image src={article.imageUrl[1]} alt={article.imageAlt} />
 
           <Box p="5">
             <Box display="flex" alignItems="baseline">
-              <Badge borderRadius="full" px="2" colorScheme="linkedin">
+              <Badge borderRadius="full" px="2" bg="transitionTone">
                 Spotlight
               </Badge>
               <Box
-                color="cardLightText"
+                color="deepTone"
+                opacity="0.6"
                 fontWeight="semibold"
-                letterSpacing="wide"
+                fontFamily="tags"
+                letterSpacing="wider"
                 fontSize="xs"
                 textTransform="uppercase"
                 ml="2"
@@ -107,23 +112,23 @@ const Spotlight = () => {
 
             <Box
               mt={3}
-              fontWeight="semibold"
-              as="h4"
+              fontWeight="bold"
+              fontSize="lg"
               lineHeight="tight"
-              letterSpacing="1px"
+              letterSpacing="wider"
               textTransform="uppercase"
               isTruncated
             >
               {article.title[1]}
             </Box>
 
-            <Box display="flex" mt="2" alignItems="center">
+            <Box display="flex" mt="1" alignItems="center">
               <Box
                 as="span"
                 mt={-2}
                 color="spotlightDescription"
-                fontWeight="semibold"
-                fontSize="sm"
+                fontWeight="normal"
+                fontSize="md"
               >
                 {article.description[1]}
               </Box>
@@ -135,23 +140,26 @@ const Spotlight = () => {
           </Box>
         </Box>
         <Box
-          className="shadow-2xl rounded-3xl"
+          className="shadow-xl rounded-3xl"
           maxW="sm"
-          bg="cardBackground"
-          borderWidth="5px"
+          bg="baseTone"
+          opacity="0.9"
+          backdropFilter="blur(30px)"
           overflow="hidden"
         >
           <Image src={article.imageUrl[2]} alt={article.imageAlt} />
 
           <Box p="5">
             <Box display="flex" alignItems="baseline">
-              <Badge borderRadius="full" px="2" colorScheme="linkedin">
+              <Badge borderRadius="full" px="2" bg="transitionTone">
                 Spotlight
               </Badge>
               <Box
-                color="cardLightText"
+                color="deepTone"
+                opacity="0.6"
                 fontWeight="semibold"
                 letterSpacing="wide"
+                fontFamily="tags"
                 fontSize="xs"
                 textTransform="uppercase"
                 ml="2"
@@ -164,22 +172,22 @@ const Spotlight = () => {
             <Box
               mt={3}
               fontWeight="semibold"
-              as="h4"
+              fontSize="lg"
               lineHeight="tight"
-              letterSpacing="1px"
+              letterSpacing="wider"
               textTransform="uppercase"
               isTruncated
             >
               {article.title[2]}
             </Box>
 
-            <Box display="flex" mt="2" alignItems="center">
+            <Box display="flex" mt="1" alignItems="center">
               <Box
                 as="span"
                 mt={-2}
                 color="spotlightDescription"
-                fontWeight="semibold"
-                fontSize="sm"
+                fontWeight="normal"
+                fontSize="md"
               >
                 {article.description[2]}
               </Box>
@@ -191,6 +199,8 @@ const Spotlight = () => {
           </Box>
         </Box>
       </Stack>
+
+      <Image pos="relative" top="20" left="-40" src="https://bit.ly/3xeqLZ1" />
     </Container>
   )
 }

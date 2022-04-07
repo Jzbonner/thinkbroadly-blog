@@ -5,10 +5,7 @@ import {
   SimpleGrid,
   VStack,
   HStack,
-  Divider,
   Spacer,
-  Image,
-  Flex,
   Text,
   Tabs,
   TabList,
@@ -22,10 +19,12 @@ const BodyLayout = () => {
   const BlogArticles = [
     {
       postid: 1,
-      decal: "https://bit.ly/3vydhq9",
+      decal: "https://bit.ly/3tWvw7f",
       category: "Tech",
       categoryLong: "Programming",
       categoryDescription: "Changing the world though computation",
+      sectionDescription:
+        "Programming is, quite literally, all around us. From the take-out we order, to the movies we stream, code enables everyday actions in our lives. Tech companies are no longer recognizable as just software companies — instead, they bring food to our door, help us get a taxi, influence outcomes in presidential elections, or act as a personal trainer.",
       articles: [
         {
           articleid: 1,
@@ -60,7 +59,7 @@ const BodyLayout = () => {
     },
     {
       postid: 2,
-      decal: "https://bit.ly/3Mq0WKH",
+      decal: "https://bit.ly/3qYCmHE",
       category: "Startup",
       categoryLong: "Entrepreneurship",
       categoryDescription: "Business through growth and innovation",
@@ -76,7 +75,7 @@ const BodyLayout = () => {
     },
     {
       postid: 3,
-      decal: "https://bit.ly/3ppP7dy",
+      decal: "https://bit.ly/3v80Orp",
       category: "Design",
       categoryLong: "UI/UX",
       categoryDescription: "Understanding human computer interaction",
@@ -92,7 +91,7 @@ const BodyLayout = () => {
     },
     {
       postid: 4,
-      decal: "https://bit.ly/3hsefMa",
+      decal: "https://bit.ly/3qVTayM",
       category: "Culture",
       categoryLong: "Workplace diversity and inclusion",
       categoryDescription: "A technological landscape for all",
@@ -110,8 +109,14 @@ const BodyLayout = () => {
 
   return (
     <Container mt={20} mb={20} maxW="container.lg">
-      <Tabs variant="soft-rounded" align="center" colorScheme="linkedin">
-        <TabList>
+      <Tabs variant="soft-rounded" align="center" colorScheme="gray">
+        <TabList
+          borderRadius="xl"
+          bg="baseTone"
+          opacity="0.75"
+          p={2}
+          maxW="400px"
+        >
           {BlogArticles.map((item, postid) => (
             <Tab key={postid} color="whiteAlpha.600">
               {item.category}
@@ -121,52 +126,46 @@ const BodyLayout = () => {
         <TabPanels>
           {BlogArticles.map((item, postid) => (
             <TabPanel mt={7} key={postid}>
-              <SimpleGrid columns={{ sm: 1, md: 2 }}>
-                <Box
-                  className="border-4 border-transparent shadow-2xl rounded-md"
-                  p="4"
-                  bgImage={item.decal}
-                  bgSize="cover"
-                  h="350px"
-                >
-                  <Flex
-                    className="border-4 border-slate-800 rounded-md"
-                    h="120px"
-                    minW="250px"
-                    mt={7}
-                    ml={-12}
+              <SimpleGrid columns={{ sm: 1, md: 2 }} spacing="20">
+                <VStack spacing="20">
+                  <Box
+                    className="border-4 border-transparent shadow-xl rounded-full"
                     p="4"
-                    bg="sectionBackground"
-                    backdropFilter="blur(10px)"
-                    fontWeight="semibold"
-                    textTransform="uppercase"
-                  >
-                    <Text fontSize="lg" fontWeight="bold">
-                      {item.categoryLong}
+                    bgImage={item.decal}
+                    bgSize="cover"
+                    bgPosition="center"
+                    h="400px"
+                    w="400px"
+                  ></Box>
+                  <Box className="border-t-4 border-slate-400">
+                    <Text fontSize="lg" color="white" mt={4}>
+                      {item.sectionDescription}
                     </Text>
-                    <Text mt={4}>{item.categoryDescription}</Text>
-                  </Flex>
-                </Box>
+                  </Box>
+                </VStack>
                 <VStack mt={{ sm: 10, md: 0 }} spacing="20">
                   {item.articles.map((article, articleid) => (
                     <Box
-                      className="shadow-2xl border-b-2 border-slate"
+                      className="shadow-xl rounded-lg"
                       key={articleid}
-                      h="170px"
+                      h="150px"
                       pb="5"
                       pl="5"
                       pr="5"
                       w="400px"
-                      bg=""
+                      backdropFilter="blur(20px)"
+                      bg="baseTone"
+                      opacity="0.9"
                     >
                       <Container
                         className="rounded-full"
                         display="flex"
                         bg="slategrey"
-                        mt={3}
+                        opacity="0.8"
+                        mt={-3}
                         p={1}
                       >
-                        <HStack spacing="112px">
+                        <HStack spacing="125px">
                           <Text as="p" fontSize="sm" color="white">
                             <ArrowForwardIcon ml={3} mr={1} />
                             {article.date}
@@ -181,41 +180,28 @@ const BodyLayout = () => {
                         align="left"
                         letterSpacing="1px"
                         fontWeight="bold"
-                        color="white"
+                        fontSize="lg"
+                        color="spotlightCardDarkText"
                       >
                         {article.title}
                       </Text>
                       <Text
                         as="p"
                         align="left"
-                        fontSize="sm"
+                        fontSize="md"
                         mt={-1}
                         mb={6}
-                        color="white"
+                        color="spotlightCardDarkText"
                       >
                         {article.description}
                       </Text>
-                      <HStack
-                        justify="center"
-                        spacing="5px"
-                        divider={<LinkIcon h="3px" color="footerText" />}
-                      >
+                      <HStack justify="center" spacing="5px">
                         {article.tags.map((tag, index) => (
-                          <Text key={index} as="p" color="#927989">
+                          <Text key={index} as="p" color="blendedTone">
                             {tag}
+                            <LinkIcon h="3px" color="footertext" />
                           </Text>
                         ))}
-                        <Divider />
-                        <Image
-                          className="shadow-xl"
-                          position="relative"
-                          top="4"
-                          left="3"
-                          bg="#b4a096"
-                          borderRadius="4px"
-                          w="2rem"
-                          src="https://res.cloudinary.com/dzmc7doja/image/upload/v1643652329/design-assets/design-icon-assets/projects-decal.png"
-                        />
                       </HStack>
                     </Box>
                   ))}

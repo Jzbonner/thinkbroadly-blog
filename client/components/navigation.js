@@ -1,7 +1,10 @@
+// TODO: add functinality for sidebar
+// TODO: add functinality for darkmode
+
 //chakra-ui imports
 import {
   Box,
-  Circle,
+  Flex,
   Image,
   SimpleGrid,
   Container,
@@ -13,29 +16,27 @@ import { HamburgerIcon, MoonIcon } from "@chakra-ui/icons"
 const Navigation = () => {
   return (
     <Container maxW="container.xl">
-      <Box mt={2} p="1">
+      <Box mt={2} p={2}>
         <SimpleGrid columns={3} spacing={10}>
           <Box display="flex" alignItems="center">
             <IconButton
-              colorscheme="grey"
+              colorScheme="blackAlpha"
               aria-label="navigation menu"
               icon={<HamburgerIcon />}
             />
           </Box>
-          <Circle p={2}>
+          <Flex justifyContent="center">
             <Image
-              className="animate-pulse"
-              src="https://bit.ly/33NIf1N"
+              className="animate-rotate-in"
+              src="https://bit.ly/3DzRIHn"
               alt="logo"
-              width={{ base: "50", sm: "50", md: "32" }}
-              height={{ base: "50", sm: "50", md: "32" }}
               quality={100}
             />
-          </Circle>
+          </Flex>
           <Box display="flex" alignItems="center">
             <Spacer />
             <IconButton
-              colorscheme="grey"
+              colorScheme="blackAlpha"
               aria-label="dark mode"
               icon={<MoonIcon />}
             />
